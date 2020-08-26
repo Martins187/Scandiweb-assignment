@@ -1,0 +1,42 @@
+.large{
+    width: 100%; 
+    /* height:120px; */
+    
+     display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-rows: 150px;
+  
+  
+  grid-gap: 50px;
+
+}
+.bloks{
+    width:100%;
+    height:150px;
+    background-color: grey;
+    /* text-align: left; */
+    font-size: 20px;
+}
+.bloks2{
+    width:100%;
+    height: 150px;
+    text-align: center;
+    background-color: transparent;
+}
+.button{
+    position: relative;
+    /* bottom: 10%; */
+    left: 0%;
+    height: 20px;
+    width: 20px;
+    background-color: indigo;
+    margin: 5px;
+
+}
+.button:hover{
+    background-color: rgb(110, 8, 183);
+}
+
+.burtu_lielums{
+    font-size: medium;
+}
