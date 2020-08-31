@@ -9,12 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product list</title>
     <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.5.1.js"></script>
 </head>
 <body>
 
     <a href="process.php">Product add</a>
     <form name = "form1" action="Product_list.php" method = "post">
-    <input type = "submit" name = "submit1" value = "delete selected">
+    <input class = "ievade" type = "submit" name = "submit1" value = "delete selected">
+    <br>
+    <br>
     
     <?php
 		$sqql = "SELECT * FROM logins;";
@@ -29,8 +32,10 @@
                 
                 echo '<div class = bloks>';
                 echo'<button class = "button">x</button>';
-                ?><input type = "checkbox" name = "num[]" value = "<?php echo $row["id"];?>"/><?php
-                echo '<div class = "bloks2">';
+                ?>
+                <input type = "checkbox" name = "num[]" value = "<?php echo $row["id"];?>"/>
+                <div id = "<?php echo $row["id"]; ?>" class = "bloks2">
+                <?php
                 echo $row['id'] . "<br><br>";
 				echo $row['username'] . "<br><br>";
                 echo $row['password'] . "<br><br>";
@@ -50,8 +55,10 @@
 
             foreach($box as $value){
                 $sql = "DELETE FROM logins WHERE id= $value";
+                
             }
             if (mysqli_query($conn, $sql)) {
+                 header("Refresh: 0");
                 echo "Record deleted successfully";
               } else {
                 echo "Error deleting record: " . mysqli_error($conn);
@@ -63,8 +70,12 @@
         }
 
     ?>
-    <!-- <script type = "text/javascript">
-    window.location.href = window.location.href;
-    </script> -->
+    <script>
+        $(document).ready(function(){
+            $("#<?php echo $row["id"];?>").(function(){
+                 $("<?php echo $row["id"]; ?>").hide();
+            })
+        })
+    </script>
 </body>
 </html>

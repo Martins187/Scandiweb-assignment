@@ -16,6 +16,11 @@
     background-color: grey;
     /* text-align: left; */
     font-size: 20px;
+    
+}
+.bloks:hover{
+    transform: scale(1.1);
+    transition: transform .2s;
 }
 .bloks2{
     width:100%;
