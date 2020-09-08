@@ -22,7 +22,7 @@
                echo "PRICE: ".$data['PRICE']."$<br>";
                echo "WEIGHT: ".$data['WEIGHT']." KG";
                echo "</div>";?>
-               <input type = "checkbox" class = "button" name = "numBook[]" value = "<?php echo $data["SKU"];?>"/>
+               <input type = "checkbox" class = "button" name = "numB[]" value = "<?php echo $data["SKU"];?>"/>
                <?php
                echo'</div>';  
             }
@@ -30,7 +30,7 @@
         }
         public function deleteBook(){
             
-                $box = $_POST['numBook'];
+                $box = $_POST['numB'];
                 $conn = $this->connect();
 
                 foreach($box as $value){

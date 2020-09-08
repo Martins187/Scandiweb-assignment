@@ -32,8 +32,9 @@ include 'Classes/Book/ViewBook.php';
         $books->showAllBook();
 
         if(isset($_POST["submit1"])){
-            $books->deleteBook();
+            
             $dvds->deleteDvd();
+            $books->deleteBook();
         }
         ?>
         </div>

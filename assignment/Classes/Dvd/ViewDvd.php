@@ -19,17 +19,17 @@
               <?php
                echo "SKU: DV".$data['SKU']."<br>";
                echo "NAME: ".$data['NAME']."<br>";
-               echo "PRICE: ".$data['PRICE']."$<br>";
-               echo "WEIGHT: ".$data['SIZE']." MB<br><br>";
+               echo "PRICE:".$data['PRICE']."$<br>";
+               echo $data['SIZE']." MB<br><br>";
                echo "</div>";?>
-               <input type = "checkbox" class = "button" name = "numDvd[]" value = "<?php echo $data["SKU"];?>"/>
+               <input type = "checkbox" class = "button" name = "numD[]" value = "<?php echo $data["SKU"];?>"/>
                <?php
                echo'</div>';  
             }
         }
         public function deleteDvd(){
             
-            $box = $_POST['numDvd'];
+            $box = $_POST['numD'];
             $conn = $this->connect();
 
             foreach($box as $value){
