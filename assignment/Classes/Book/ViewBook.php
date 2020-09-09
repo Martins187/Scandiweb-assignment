@@ -31,21 +31,24 @@
 
         }
         public function deleteBook(){
-            
+            if(isset($_POST['numB'])){
                 $box = $_POST['numB'];
                 $conn = $this->connect();
 
-                foreach($box as $value){
+                foreach($box as $key=> $value){
                     $del = "DELETE FROM book WHERE SKU= $value";
                     
                 }
                 if (mysqli_query($conn, $del)) {
-                    header("Refresh: 0");
-                   echo "Record deleted successfully";
+                    // header("Refresh: 0");
+                echo "Record deleted successfully";
                 }
                 else{
-                   echo "Error deleting record: " . mysqli_error($conn);
-                 }
+                echo "Error deleting record: " . mysqli_error($conn);
+                }
+            }
+            
+                
             
         }
     }

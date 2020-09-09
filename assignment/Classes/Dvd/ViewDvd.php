@@ -15,7 +15,6 @@
                 foreach($datas as $data){
                     echo '<div class = bloks>';
                     ?>
-                   
                     <div id = "<?php echo $data["SKU"]; ?>" class = "bloks2">
                     <?php
                         echo "SKU: DV".$data['SKU']."<br>";
@@ -30,21 +29,24 @@
             }
         }
         public function deleteDvd(){
-            
-            $box = $_POST['numD'];
-            $conn = $this->connect();
+            if(isset($_POST['numD'])){
+                $box = $_POST['numD'];
+                $conn = $this->connect();
 
-            foreach($box as $value){
-                $del = "DELETE FROM dvd WHERE SKU= $value";
-                
+                foreach($box as $key=>$value){
+                    $del = "DELETE FROM dvd WHERE SKU= $value";
+                    
+                }
+                if (mysqli_query($conn, $del)) {
+                    header("Refresh: 0");
+                echo "Record deleted successfully";
+                }
+                else{
+                echo "Error deleting record: " . mysqli_error($conn);
+                }
+
             }
-            if (mysqli_query($conn, $del)) {
-                header("Refresh: 0");
-               echo "Record deleted successfully";
-            }
-            else{
-               echo "Error deleting record: " . mysqli_error($conn);
-             }
+            
         
     }
     }
