@@ -1,10 +1,21 @@
+<?php
+  include 'Classes/Connection.php';
+  include 'Classes/Dvd/Dvd_data.php';
+  include 'Classes/Dvd/ViewDvd.php';
+  include 'Classes/Dvd/Dvd_add.php';
+  include 'Classes/Book/Book_data.php';
+  include 'Classes/Book/ViewBook.php';
+  include 'Classes/Book/Book_add.php';
+?>
+
 <!DOCTYPE html>
-<?php include 'Classes/Connection.php';?>
+<?php //include 'Classes/Connection.php';?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product add</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -12,54 +23,117 @@
 </head>
 <body>
 <h1>Product add</h1>
-<form action = "process.php" method = "POST">
 
-Name :<input type="text" name="fname"><br>
-Price :<input type="password" name="pass">
-<input type= "submit" name = "submit" value = "Create">
-</form>
-<div class="dropdown">
+<div style = "margin: 15px" class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Choose the item
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">DVD</a>
-    <a class="dropdown-item" href="#">BOOK</a>
-    <a class="dropdown-item" href="#">FURNITURE</a>
+    <button class="dropdown-item" id = "buttonD">DVD</button>
+    <button class="dropdown-item" id = "buttonB">BOOK</button>
+    <button class="dropdown-item" id = "buttonF">FURNITURE</button>
   </div>
 </div>
-<?php
 
-// include ('login.php');
-// // include ('Product_list.php');
+<form id = "product_form" style = "margin: 10px" action = "product_add.php" method = "POST">
+<div style="width:210px">
+Name :<input class = "inputStyle" type="text" name="fname">
+<br>
+Price :<input class = "inputStyle" type="text" name="fprice">
+<br>
+</div>
+<div class = "largeWindow">
+  <div class = "window" id = "windowD">
+    Size :<input class = "inputStyle" type="text" name="fsize">
+    <div class = "smallerWindow">
+      <p class = "warning">Important!</p>
+      <p class = "warningText">DVD size input must be in mb!</p>
+    </div>
+  </div>
+  <div class = "window" id = "windowB">
+    Weight :<input class = "inputStyle" type="text" name="fweight">
+    <div class = "smallerWindow">
+      <p class = "warning">Important!</p>
+      <p class = "warningText">Weight of the book must be in kg!</p>
+    </div>
+  </div>
+  <div class = "window" id = "windowF">
+    Height :<input class = "inputStyle" type="text" name="fheight">
+    Width :<input class = "inputStyle" type="text" name="fwidth">
+    Length :<input class = "inputStyle" type="text" name="flength">
+    <div class = "smallerWindow">
+      <p class = "warning">Important!</p>
+      <p class = "warningText">All three measures must be enetred in meters!</p>
+    </div>
+  </div>
+</div>
+<input style = "margin: 10px" type= "submit" name = "submit1">
+</form>
 
-// $userName = $_POST['fname'];
-// $userPassword = $_POST['pass'];
-
-
-// if (!$_POST['submit']){
-//    echo "All fields are required!";
-// }
-// else{
-   
-//    $sql = "INSERT into logins (username, password)
-//    values ('$userName', '$userPassword')";
-   
-
-//    if(mysqli_query($conn,$sql)){
-//      echo "Data creation successful!";
-//      echo $userID;
-     
-//    }
-//    else{
-// 	   echo "Something went wrong!";
-//    }
-//    echo $num;
-
-// }
-// ?>
-// <br>
-// <a href="Product_list.php">Product list</a>
-
+  <?php
+    
+    if(empty($_POST['submit1'])){
+      echo 'All fields are required!';
+    }
+    else{
+      if(empty($_POST['fname']) || empty($_POST['fprice'])){
+        echo 'Empty Name or price field!';
+      }
+      else{
+        $name = $_POST['fname'];
+        $price = $_POST['fprice']; 
+        $sbmt = ($_POST['submit1']);
+        if(empty($_POST['fweight'])){
+          $size = $_POST['fsize']; 
+          $dvd = new Dvd($name, $price, $size);
+          $dvd->addDvd();
+        }
+        elseif(empty($_POST['fsize'])){
+          $weight = $_POST['fweight'];
+          $book = new Book($name, $price, $weight);
+          $book->addBook(); 
+        }
+        // elseif(isset($_POST['fheight']) && isset($_POST['fwidth']) && isset($_POST['flength'])){
+        //   $height = $_POST['fheight'];
+        //   $width = $_POST['fwidth'];
+        //   $length = $_POST['flength'];
+        //   $furniture = new Furniture($name, $price, $height, $width, $length);
+        //   $furniture->addFurniture(); 
+        //}
+        else{
+          echo 'Parameter field/fields are also required!';
+        }
+      } 
+    }
+  ?>
+ <script>
+ $(document).ready(function(){
+    $("#windowD").hide();
+    $("#windowB").hide();
+    $("#windowF").hide();
+  
+  $("#buttonD").click(function(){
+    $("#windowD").show();
+    $("#windowB").hide();
+    $("#windowF").hide();
+    document.getElementById('product_form').reset();
+  })
+  $("#buttonB").click(function(){
+    $("#windowB").show();
+    $("#windowD").hide();
+    $("#windowF").hide();
+    document.getElementById('product_form').reset();
+  })
+  $("#buttonF").click(function(){
+    $("#windowF").show();
+    $("#windowB").hide();
+    $("#windowD").hide();
+    document.getElementById('product_form').reset();
+  })
+ })
+ </script>
+ <br>
+ <a href="list_products.php">Product list</a>
+ 
 </body>
 </html>

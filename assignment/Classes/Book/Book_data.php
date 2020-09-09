@@ -12,6 +12,9 @@
                }
                return $data;
            }
+           else{
+               return '0';
+           }
         }
     }
 ?>

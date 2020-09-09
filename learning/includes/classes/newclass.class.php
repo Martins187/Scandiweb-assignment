@@ -6,9 +6,11 @@ class NewClass {
     public $info = "This is some info!";
 }
 class Person{
-   public $name;
-   public $eyeColor;
-   public $age;
+   private $name;
+   private $eyeColor;
+   private $age;
+
+   public static $drinkingAge = 21;
 
    
    public function __construct($name,$eyeColor,$age){
@@ -19,6 +21,9 @@ class Person{
    
    public function getName(){
        return $this->name;
+   }
+   public function setName(){
+       $this->name = $something;
    }
 }
 

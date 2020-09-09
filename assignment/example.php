@@ -8,6 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -68,5 +69,40 @@
   </div>
 </div>
 </div>
+<div class = "largeWindow">
+  <div class = "window" id = "windowD">jjj</div>
+  <div class = "window" id = "windowB">dddd</div>
+  <div class = "window" id = "windowF">ddddd</div>
+</div>
+
+
+
+// include ('login.php');
+// // include ('Product_list.php');
+
+// $userName = $_POST['fname'];
+// $userPassword = $_POST['pass'];
+
+
+// if (!$_POST['submit']){
+//    echo "All fields are required!";
+// }
+// else{
+   
+//    $sql = "INSERT into logins (username, password)
+//    values ('$userName', '$userPassword')";
+   
+
+//    if(mysqli_query($conn,$sql)){
+//      echo "Data creation successful!";
+//      echo $userID;
+     
+//    }
+//    else{
+// 	   echo "Something went wrong!";
+//    }
+//    echo $num;
+
+// }
 </body>
 </html>

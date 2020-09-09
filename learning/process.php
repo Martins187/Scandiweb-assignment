@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	<!-- link above must be deleted if i do not use jquery -->
 </head>
-
+<body>
 <p></p>
 <form action = "process.php" method = "POST">
 
@@ -33,17 +33,16 @@ include ('login.php');
 
 $userName = $_POST['fname'];
 $userPassword = $_POST['pass'];
-$num;
+
 
 if (!$_POST['submit']){
    echo "All fields are required!";
 }
 else{
-   $userID = "LG".$num;
-   $sql = "INSERT into logins (id, username, password)
-   values ('$userID', '$userName', '$userPassword')";
-   $num = $num + 1;
-
+   
+   $sql = "INSERT into logins (username, password)
+   values ('$userName', '$userPassword')";
+   
 
    if(mysqli_query($conn,$sql)){
      echo "Data creation successful!";
@@ -55,7 +54,7 @@ else{
    }
    echo $num;
 
-}
+
 ?>
 <br>
 <a href="Product_list.php">Product list</a>

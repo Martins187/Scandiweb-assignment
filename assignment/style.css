@@ -57,3 +57,39 @@
 .burtu_lielums{
     font-size: medium;
 }
+
+/* Izmeginajums */
+.largeWindow{
+    width: 210px;
+    background-color: white;
+    position: relative;
+    display: flex;
+    justify-content: left;
+}
+.window{
+    width:92%;
+    background-color: rgb(255, 255, 255);
+    /* margin:10px; */
+}
+.inputStyle{
+    margin: 10px;
+}
+.smallerWindow{
+    margin: 10px;
+    border: 5px  solid rgb(85, 85, 85);
+    width: 100%;
+    
+}
+.warning{
+    color: red;
+    font-size: medium;
+    font-weight: 700;
+    margin: 5px;
+}
+.warningText{
+    margin:5px;
+}
+
+/* #windowD{
+    
+} */

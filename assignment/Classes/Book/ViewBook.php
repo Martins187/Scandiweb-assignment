@@ -12,19 +12,21 @@
         public function showAllBook(){
             
             $datas = $this->getAllBook();
-            foreach($datas as $data){
-              echo '<div class = bloks>';
-              ?>
-              <div id = "<?php echo $data["SKU"]; ?>" class = "bloks2 ">
-              <?php
-               echo "SKU: BK".$data['SKU']."<br>";
-               echo "NAME: ".$data['NAME']."<br>";
-               echo "PRICE: ".$data['PRICE']."$<br>";
-               echo "WEIGHT: ".$data['WEIGHT']." KG";
-               echo "</div>";?>
-               <input type = "checkbox" class = "button" name = "numB[]" value = "<?php echo $data["SKU"];?>"/>
-               <?php
-               echo'</div>';  
+            if ($datas != 0){
+                foreach($datas as $data){
+                    echo '<div class = bloks>';
+                    ?>
+                    <div id = "<?php echo $data["SKU"]; ?>" class = "bloks2 ">
+                    <?php
+                        echo "SKU: BK".$data['SKU']."<br>";
+                        echo "NAME: ".$data['NAME']."<br>";
+                        echo "PRICE: ".$data['PRICE']."$<br>";
+                        echo "WEIGHT: ".$data['WEIGHT']." KG";
+                        echo "</div>";?>
+                     <input type = "checkbox" class = "button" name = "numB[]" value = "<?php echo $data["SKU"];?>"/>
+                     <?php
+                     echo'</div>';  
+                  }
             }
 
         }
