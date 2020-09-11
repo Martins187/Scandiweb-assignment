@@ -4,6 +4,8 @@ include 'Classes/Dvd/Dvd_data.php';
 include 'Classes/Dvd/ViewDvd.php';
 include 'Classes/Book/Book_data.php';
 include 'Classes/Book/ViewBook.php';
+include 'Classes/Furniture/Furniture_data.php';
+include 'Classes/Furniture/ViewFurniture.php';
 
 ?>
 <!DOCTYPE html>
@@ -31,10 +33,14 @@ include 'Classes/Book/ViewBook.php';
         $books = new ViewBook();
         $books->showAllBook();
 
+        $furn = new ViewFn();
+        $furn->showAllFn();
+
         if(isset($_POST["submit1"])){
             
             $dvds->deleteDvd();
             $books->deleteBook();
+            $furn->deleteFn();
         }
         ?>
         </div>

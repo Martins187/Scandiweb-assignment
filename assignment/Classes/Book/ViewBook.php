@@ -33,7 +33,6 @@
         public function deleteBook(){
             if(isset($_POST['numB'])){
                 $box = $_POST['numB'];
-                $count = count($_POST['numB']);
                 $conn = $this->connect();
 
                 foreach($box as $key=> $value){

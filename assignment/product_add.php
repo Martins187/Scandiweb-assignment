@@ -6,6 +6,9 @@
   include 'Classes/Book/Book_data.php';
   include 'Classes/Book/ViewBook.php';
   include 'Classes/Book/Book_add.php';
+  include 'Classes/Furniture/Furniture_data.php';
+  include 'Classes/Furniture/ViewFurniture.php';
+  include 'Classes/Furniture/Furniture_add.php';
 ?>
 
 <!DOCTYPE html>
@@ -85,23 +88,23 @@ Price :<input class = "inputStyle" type="text" name="fprice">
         if(empty($_POST['fweight']) && empty($_POST['fsize'])){
           echo 'Parameter field/fields are also required!';
         }
-        elseif(empty($_POST['fweight'])){
+        elseif(empty($_POST['fweight']) || (empty($_POST['fheight']) && empty($_POST['fwidth']) && empty($_POST['flength']))){
           $size = $_POST['fsize']; 
           $dvd = new Dvd($name, $price, $size);
           $dvd->addDvd();
         }
-        elseif(empty($_POST['fsize'])){
+        elseif(empty($_POST['fsize']) || (empty($_POST['fheight']) && empty($_POST['fwidth']) && empty($_POST['flength']))){
           $weight = $_POST['fweight'];
           $book = new Book($name, $price, $weight);
           $book->addBook(); 
         }
-        // elseif(isset($_POST['fheight']) && isset($_POST['fwidth']) && isset($_POST['flength'])){
-        //   $height = $_POST['fheight'];
-        //   $width = $_POST['fwidth'];
-        //   $length = $_POST['flength'];
-        //   $furniture = new Furniture($name, $price, $height, $width, $length);
-        //   $furniture->addFurniture(); 
-        //}
+        elseif(empty($_POST['fsize']) || empty($_POST['fweight'])){
+          $height = $_POST['fheight'];
+          $width = $_POST['fwidth'];
+          $length = $_POST['flength'];
+          $furniture = new Furniture($name, $price, $height, $width, $length);
+          $furniture->addFn(); 
+        }
       } 
     }
     else{

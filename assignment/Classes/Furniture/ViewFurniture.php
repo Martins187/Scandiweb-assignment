@@ -7,10 +7,10 @@
 </head>
 <body>
 <?php
-    class ViewDvd extends DvdData{
+    class ViewFn extends FnData{
        
-        public function showAllDvd(){
-            $datas = $this->getAllDvd();
+        public function showAllFn(){
+            $datas = $this->getAllFn();
             if($datas != 0){
                 foreach($datas as $data){
                     echo '<div class = bloks>';
@@ -20,21 +20,23 @@
                         echo "SKU: DV".$data['SKU']."<br>";
                         echo "NAME: ".$data['NAME']."<br>";
                         echo "PRICE: ".$data['PRICE']."$<br>";
-                        echo "SIZE: ".$data['SIZE']." MB<br><br>";
+                        echo "HEIGHT: ".$data['HEIGHT']." m<br>";
+                        echo "WIDTH: ".$data['WIDTH']." m<br>";
+                        echo "LENGTH: ".$data['LENGTH']." m<br><br>";
                         echo "</div>";?>
-                     <input type = "checkbox" class = "button" name = "numD[]" value = "<?php echo $data["SKU"];?>"/>
+                     <input type = "checkbox" class = "button" name = "numF[]" value = "<?php echo $data["SKU"];?>"/>
                      <?php
                      echo'</div>';  
                   }
             }
         }
-        public function deleteDvd(){
-            if(isset($_POST['numD'])){
-                $box = $_POST['numD'];
+        public function deleteFn(){
+            if(isset($_POST['numF'])){
+                $box = $_POST['numF'];
                 $conn = $this->connect();
 
                 foreach($box as $key=>$value){
-                    $del = "DELETE FROM dvd WHERE SKU= $value";
+                    $del = "DELETE FROM furniture WHERE SKU= $value";
                     if (mysqli_query($conn, $del)) {
                         header("Refresh: 0");
                     }
