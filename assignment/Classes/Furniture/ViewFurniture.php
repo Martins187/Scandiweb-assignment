@@ -17,12 +17,10 @@
                     ?>
                     <div id = "<?php echo $data["SKU"]; ?>" class = "bloks2">
                     <?php
-                        echo "SKU: DV".$data['SKU']."<br>";
+                        echo "SKU: FN".$data['SKU']."<br>";
                         echo "NAME: ".$data['NAME']."<br>";
                         echo "PRICE: ".$data['PRICE']."$<br>";
-                        echo "HEIGHT: ".$data['HEIGHT']." m<br>";
-                        echo "WIDTH: ".$data['WIDTH']." m<br>";
-                        echo "LENGTH: ".$data['LENGTH']." m<br><br>";
+                        echo "DIMENSIONS: ".$data['DIMENSIONS']."<br>";
                         echo "</div>";?>
                      <input type = "checkbox" class = "button" name = "numF[]" value = "<?php echo $data["SKU"];?>"/>
                      <?php
