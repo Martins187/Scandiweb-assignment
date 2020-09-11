@@ -42,6 +42,5 @@ include 'Classes/Book/ViewBook.php';
    
 </form>
 <div>Ca</div>
-
 </body>
 </html>
