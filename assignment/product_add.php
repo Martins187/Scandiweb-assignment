@@ -72,10 +72,8 @@ Price :<input class = "inputStyle" type="text" name="fprice">
 
   <?php
     
-    if(empty($_POST['submit1'])){
-      echo 'All fields are required!';
-    }
-    else{
+    if(isset($_POST['submit1'])){
+      
       if(empty($_POST['fname']) || empty($_POST['fprice'])){
         echo 'Empty Name or price field!';
       }
@@ -83,7 +81,11 @@ Price :<input class = "inputStyle" type="text" name="fprice">
         $name = $_POST['fname'];
         $price = $_POST['fprice']; 
         $sbmt = ($_POST['submit1']);
-        if(empty($_POST['fweight'])){
+        
+        if(empty($_POST['fweight']) && empty($_POST['fsize'])){
+          echo 'Parameter field/fields are also required!';
+        }
+        elseif(empty($_POST['fweight'])){
           $size = $_POST['fsize']; 
           $dvd = new Dvd($name, $price, $size);
           $dvd->addDvd();
@@ -100,10 +102,10 @@ Price :<input class = "inputStyle" type="text" name="fprice">
         //   $furniture = new Furniture($name, $price, $height, $width, $length);
         //   $furniture->addFurniture(); 
         //}
-        else{
-          echo 'Parameter field/fields are also required!';
-        }
       } 
+    }
+    else{
+      echo 'All fields are required!';
     }
   ?>
  <script>
@@ -116,20 +118,26 @@ Price :<input class = "inputStyle" type="text" name="fprice">
     $("#windowD").show();
     $("#windowB").hide();
     $("#windowF").hide();
+    $("#dropdownMenuButton").html("DVD");
     document.getElementById('product_form').reset();
+    
   })
   $("#buttonB").click(function(){
     $("#windowB").show();
     $("#windowD").hide();
     $("#windowF").hide();
+    $("#dropdownMenuButton").html("BOOK");
     document.getElementById('product_form').reset();
   })
   $("#buttonF").click(function(){
     $("#windowF").show();
     $("#windowB").hide();
     $("#windowD").hide();
+    $("#dropdownMenuButton").html("FURNITURE");
     document.getElementById('product_form').reset();
   })
+
+  
  })
  </script>
  <br>
