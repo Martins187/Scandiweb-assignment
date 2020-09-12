@@ -13,7 +13,7 @@
             $datas = $this->getAllDvd();
             if($datas != 0){
                 foreach($datas as $data){
-                    echo '<div class = bloks>';
+                    echo '<div class = bloks style = "background-color: rgb(186, 202, 245);">';
                     ?>
                     <div id = "<?php echo $data["SKU"]; ?>" class = "bloks2">
                     <?php

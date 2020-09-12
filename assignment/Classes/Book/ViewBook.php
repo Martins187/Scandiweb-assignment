@@ -14,14 +14,14 @@
             $datas = $this->getAllBook();
             if ($datas != 0){
                 foreach($datas as $data){
-                    echo '<div class = bloks>';
+                    echo '<div class = bloks style = " background-color: rgb(193, 253, 186);">';
                     ?>
                     <div id = "<?php echo $data["SKU"]; ?>" class = "bloks2 ">
                     <?php
                         echo "SKU: BK".$data['SKU']."<br>";
                         echo "NAME: ".$data['NAME']."<br>";
                         echo "PRICE: ".$data['PRICE']."$<br>";
-                        echo "WEIGHT: ".$data['WEIGHT']." KG";
+                        echo "WEIGHT: ".$data['WEIGHT']." KG<br><br>";
                         echo "</div>";?>
                      <input type = "checkbox" class = "button" name = "numB[]" value = "<?php echo $data["SKU"];?>"/>
                      <?php

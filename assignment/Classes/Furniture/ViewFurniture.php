@@ -13,14 +13,14 @@
             $datas = $this->getAllFn();
             if($datas != 0){
                 foreach($datas as $data){
-                    echo '<div class = bloks>';
+                    echo '<div class = bloks style = "background-color: rgb(255, 213, 179);">';
                     ?>
                     <div id = "<?php echo $data["SKU"]; ?>" class = "bloks2">
                     <?php
                         echo "SKU: FN".$data['SKU']."<br>";
                         echo "NAME: ".$data['NAME']."<br>";
                         echo "PRICE: ".$data['PRICE']."$<br>";
-                        echo "DIMENSIONS: ".$data['DIMENSIONS']."<br>";
+                        echo "D-S: ".$data['DIMENSIONS']."<br><br>";
                         echo "</div>";?>
                      <input type = "checkbox" class = "button" name = "numF[]" value = "<?php echo $data["SKU"];?>"/>
                      <?php

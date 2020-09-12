@@ -25,7 +25,14 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>Product add</h1>
+ <div class = "title1">
+  <div class = "title2" style = "color: black">
+    <a class = "link"  style = "color: black" href="product_add.php"><h1>Product add</h1></a>
+  </div>
+  <div class = "title2">
+    <a class = "link" href="list_products.php"><h1>Product list</h1></a>
+  </div>
+ </div>
 
 <div style = "margin: 15px" class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -108,7 +115,7 @@ Price :<input class = "inputStyle" type="text" name="fprice">
       } 
     }
     else{
-      echo 'All fields are required!';
+      echo '<div style = "margin: 15px; font-size: 20px; font-weight: 600; color: red;">All fields are required!<div>';
     }
   ?>
  <script>
@@ -142,9 +149,6 @@ Price :<input class = "inputStyle" type="text" name="fprice">
 
   
  })
- </script>
- <br>
- <a href="list_products.php">Product list</a>
- 
+</script>
 </body>
 </html>
