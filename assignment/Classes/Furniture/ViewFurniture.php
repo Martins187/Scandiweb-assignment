@@ -35,12 +35,10 @@
 
                 foreach($box as $key=>$value){
                     $del = "DELETE FROM furniture WHERE SKU= $value";
-                    if (mysqli_query($conn, $del)) {
-                        // header("Refresh: 0");
+                    if (!mysqli_query($conn, $del)) {
+                        echo "Error deleting furniture record: " . mysqli_error($conn);
                     }
-                    else{
-                    echo "Error deleting record: " . mysqli_error($conn);
-                    }
+                    
                 }
             }
             

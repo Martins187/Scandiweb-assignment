@@ -1,4 +1,3 @@
-<script>
 $(document).ready(function(){
     $("#windowD").hide();
     $("#windowB").hide();
@@ -26,7 +25,5 @@ $(document).ready(function(){
     $("#dropdownMenuButton").html("FURNITURE");
     document.getElementById('product_form').reset();
   })
-
-  
- })
- </script>
+})
+ 
