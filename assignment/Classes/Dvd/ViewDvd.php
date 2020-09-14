@@ -36,7 +36,7 @@
                 foreach($box as $key=>$value){
                     $del = "DELETE FROM dvd WHERE SKU= $value";
                     if (mysqli_query($conn, $del)) {
-                        header("Refresh: 0");
+                        // header("Refresh: 0");
                     }
                     else{
                     echo "Error deleting record: " . mysqli_error($conn);

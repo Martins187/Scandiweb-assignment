@@ -50,11 +50,13 @@ include 'Classes/Furniture/ViewFurniture.php';
             $dvds->deleteDvd();
             $books->deleteBook();
             $furn->deleteFn();
+            ?>
+            <meta http-equiv = "refresh" content = '0.1'>
+            <?php   
         }
         ?>
         </div>
     </div>
-   
 </form>
 </body>
 </html>
