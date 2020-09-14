@@ -1,17 +1,24 @@
 <?php
 if(isset($_POST['submit1'])){
-      
+
+    //Gives the warning if Name and Price fields are left empty  
     if(empty($_POST['fname']) || empty($_POST['fprice'])){
       echo 'Empty Name or price field!';
     }
     else{
-      $name = $_POST['fname'];
-      $price = $_POST['fprice']; 
-      $sbmt = ($_POST['submit1']);
+        //As Name and Price fields are filled, variables with the information
+        //from these fields can be created.
+        $name = $_POST['fname'];
+        $price = $_POST['fprice']; 
       
+        //Notifiying user if all the all the parameter fields are empty
       if(empty($_POST['fweight']) && empty($_POST['fsize']) && (empty($_POST['fheight']) && empty($_POST['fwidth']) && empty($_POST['flength']))){
         echo 'Parameter field/fields are also required!';
       }
+        
+        //Creating a new object and adding it to the related table int the database depending on which input fields were left empty.
+        //Objects are created and added to database with add[item type or its abbreviation]() function which can be found in 
+        //Classes/[item type]/View[item type].php
       elseif(empty($_POST['fweight']) && (empty($_POST['fheight']) && empty($_POST['fwidth']) && empty($_POST['flength']))){
         $size = $_POST['fsize']; 
         $dvd = new Dvd($name, $price, $size);
