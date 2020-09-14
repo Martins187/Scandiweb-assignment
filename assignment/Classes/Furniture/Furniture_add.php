@@ -7,7 +7,7 @@
         public function __construct($name,$price,$height,$width,$length){
             $this->name = $name;
             $this->price = $price;
-            $this->dimensions = $height.'m/ '.$width.'m/ '.$length.'m';
+            $this->dimensions = $height.'m X '.$width.'m X '.$length.'m';
             
         }
         public function addFn(){
