@@ -29,6 +29,9 @@ include 'includes.php';
     <div class = "first">
         <div class = "large">
         <?php
+
+        //All the data from the tables will be displayed by creating an object and printing out with showAll[item type]() function
+
         $dvds = new ViewDvd();
         $dvds->showAllDvd();
 
@@ -38,12 +41,17 @@ include 'includes.php';
         $furn = new ViewFn();
         $furn->showAllFn();
 
+        //Each object has checkbox, after pressing submit button already created objects will use delete[object type]() function
+        //to delete checked items from the database.
+
         if(isset($_POST["submit1"])){
             
             $dvds->deleteDvd();
             $books->deleteBook();
             $furn->deleteFn();
             ?>
+            <!-- Objects will be deleted form the database, but will be still seen in the page, so refresh is needed
+            //to make deletion more appearent-->
             <meta http-equiv = "refresh" content = '0.1'>
             <?php   
         }

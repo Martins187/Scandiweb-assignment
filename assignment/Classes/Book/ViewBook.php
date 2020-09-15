@@ -22,9 +22,10 @@
                         echo "NAME: ".$data['NAME']."<br>";
                         echo "PRICE: ".$data['PRICE']."$<br>";
                         echo "WEIGHT: ".$data['WEIGHT']." KG<br><br>";
-                        echo "</div>";?>
-                     <input type = "checkbox" class = "button" name = "numB[]" value = "<?php echo $data["SKU"];?>"/>
-                     <?php
+                        echo "</div>";
+                    ?>
+                    <input type = "checkbox" class = "button" name = "numB[]" value = "<?php echo $data["SKU"];?>"/>
+                    <?php
                      echo'</div>';  
                 }
             }
@@ -42,9 +43,6 @@
                     }
                 }
             }
-            
-                
-            
         }
     }
 ?>

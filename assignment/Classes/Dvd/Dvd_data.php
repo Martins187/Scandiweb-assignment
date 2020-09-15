@@ -3,7 +3,6 @@
        
         protected function getAllDvd(){
            $sql = "SELECT * FROM dvd";
-        //    $result = mysqli_query($conn,$sql);
            $result = $this->connect()->query($sql);
            $numRows = $result->num_rows;
            if($numRows > 0){
