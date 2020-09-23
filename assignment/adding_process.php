@@ -16,7 +16,7 @@ if(isset($_POST['submit1'])){
         echo 'Parameter field/fields are also required!';
       }
         
-        //Creating a new object and adding it to the related table int the database depending on which input fields were left empty.
+        //Creating a new object and adding it to the related table in the database depending on which input fields were left empty.
         //Objects are created and added to database with add[item type or its abbreviation]() function which can be found in 
         //Classes/[item type]/View[item type].php
       elseif(empty($_POST['fweight']) && (empty($_POST['fheight']) && empty($_POST['fwidth']) && empty($_POST['flength']))){
@@ -39,6 +39,7 @@ if(isset($_POST['submit1'])){
     } 
   }
   else{
+    //After a page reload this will be printed.
     echo '<div style = "margin: 15px; font-size: 20px; font-weight: 600; color: red;">All fields are required!<div>';
   }
 ?>

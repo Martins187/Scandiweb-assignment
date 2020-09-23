@@ -3,7 +3,6 @@
        
         protected function getAllBook(){
            $sql = "SELECT * FROM book";
-        //    $result = mysqli_query($conn,$sql);
            $result = $this->connect()->query($sql);
            $numRows = $result->num_rows;
            if($numRows > 0){
